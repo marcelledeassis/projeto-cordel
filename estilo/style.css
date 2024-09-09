@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Skranji:wght@400;700&display=swap');
+
+:root { /*configuração geral para variáveis*/
+    --fonte1: Verdana, Geneva, Tahoma, sans-serif;
+    --fonte2: "Rowdies", sans-serif;
+    --fonte3: "Skranji", system-ui;
+}
+
+* { /*regra/seletor universal para resetar todos os elementos.*/
+    margin: 0px;
+    padding: 0px;
+}
+
+html,body { /*CONFIGURAÇÕES EM COMUM. ATENÇÃO A ALTURA DA VIEWPORT (vw) E VIEWHEIGHT (vh).*/
+    font-family: var(--fonte1);
+    min-height: 100vh;
+    background-color: darkgray;
+}
+
+header { /*configuração geral do cabeçalho*/
+    color: white;
+    background-color: black;
+    text-align: center;
+}
+
+header > h1 { /*DICA! para letras maiúsculas: text-transform: uppercase; - PORÉM, NÃO É BONITO.*/
+    padding-top: 50px;
+    font-variant: small-caps; /*dá o mesmo feito do text-transform, porém com ênfase nas iniciais.*/
+    font-family: var(--fonte2);
+    font-size: 3em; /* também pode-se usar a altura da vw ex: 10vw;*/   
+}
+
+header > p { 
+    padding-bottom: 50px; /*valor para simetria com padding-top do h1.*/
+
+}
+
+header a, footer a { /*configuração geral dos links de header e footer.*/
+    color: white;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+header a:hover, footer a:hover { /*técnica simplificada para configurações específica dos links*/
+    text-decoration: underline;
+}
+
+section { /* EFEITO PARALAX: na SECTION geral, padding top e bottom para ESPAÇAMENTO DA ALTURA NA VIEWHEIGTH.*/
+    padding-top: 10vh; 
+    padding-bottom: 10vh;
+    line-height: 2em; /*espaçamento entre as linhas */
+    padding-left: 30px; /*espaçamento lateral*/
+    font-family: var(--fonte3);
+    font-size: 1.3em; /*tamanho da fonte*/
+}
+
+section {
+    padding-bottom: 2em; /*para dar espaço (texto justificado */
+}
+
+section.normal { /* lembre-se de colocar o "." e o nome da class APÓS o elemento*/
+    background-color: white;
+    color: black;
+}
+
+section.imagem { /*configuração geral para background e cor da fonte.*/
+    background-color: rgb(36, 34, 34);
+    color: white;
+    box-shadow: inset 6px 3px 13px 0px rgba(0, 0, 0, 0.212); /*sombra interna da imagem*/
+    background-size: cover; /*para tamanho padrão da imagem*/ 
+    background-attachment: fixed; /*efeito paralax. background fixo*/
+}
+
+section.imagem > p { /*caixa criada para que o texto não mescle com a imagem inserida*/
+    display: inline-block; /*caixa para adaptar ao longo do conteúdo*/
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.445); /*cor de fundo da caixa*/
+    text-shadow: 1px 1px 0px black; /*sombra ao texto*/
+}
+
+section#img01 { /*configuração da class id para efeito paralax da imagem 01*/
+    background-image: url('../imagens/background001.jpg');
+    background-position: right center; /*para centralizar a imagem à direita. (background position arruma posições das imagens)*/
+}
+
+section#img02 {/*configuração da class id para efeito paralax da imagem 02*/
+    background-image: url('../imagens/background002.jpg'); /*../ = para voltar 2 pastas caso seja necessário*/
+}
+
+footer { /*configuração geral do rodapé*/
+    color: white;
+    background-color: black;
+    text-align: center;
+    padding: 10px;
+}
